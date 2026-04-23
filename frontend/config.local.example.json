@@ -1,0 +1,21 @@
+{
+  "tabs": [
+    {
+      "name": "Project A",
+      "date": "20260424",
+      "aliases": ["fa-mvp_all", "fa-efrat_input"],
+      "env1": {
+        "name": "PROD",
+        "url": "https://es-prod.domain.com:9200",
+        "header1": { "key": "Authorization", "value": "Bearer YOUR_PROD_TOKEN" },
+        "header2": { "key": "", "value": "" }
+      },
+      "env2": {
+        "name": "PRE-PROD",
+        "url": "https://es-preprod.domain.com:9200",
+        "header1": { "key": "Authorization", "value": "Bearer YOUR_PREPROD_TOKEN" },
+        "header2": { "key": "", "value": "" }
+      }
+    }
+  ]
+}

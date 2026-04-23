@@ -13,288 +13,139 @@
             --color-surface-offset: #eef0f3; --color-border: rgba(0,0,0,0.08);
             --color-divider: #e5e7eb; --color-text: #111827; --color-text-muted: #6b7280;
             --color-text-faint: #9ca3af; --color-primary: #0062cc; --color-primary-hover: #0051a8;
-            --color-primary-highlight: #dbeafe; --color-prod: #1d4ed8; --color-prod-light: #dbeafe;
-            --color-preprod: #d97706; --color-preprod-light: #fef3c7;
+            --color-primary-highlight: #dbeafe; --color-prod: #1d4ed8; --color-preprod: #d97706;
             --color-success: #16a34a; --color-success-light: #dcfce7;
             --color-warning: #d97706; --color-warning-light: #fef3c7;
             --color-error: #dc2626; --color-error-light: #fee2e2;
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.05);
             --radius-sm: 6px; --radius-md: 8px; --radius-lg: 12px;
-            --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;
-            --space-5:20px;--space-6:24px;--space-8:32px;--space-12:48px;
+            --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;--space-6:24px;--space-8:32px;--space-12:48px;
             --font-body:'Inter',system-ui,sans-serif; --font-mono:'JetBrains Mono','Fira Code',monospace;
         }
         [data-theme="dark"] {
-            --color-bg:#0f1117;--color-surface:#161b22;--color-surface-2:#1c2128;
-            --color-surface-offset:#21262d;--color-border:rgba(255,255,255,0.08);
-            --color-divider:#30363d;--color-text:#e6edf3;--color-text-muted:#8b949e;
-            --color-text-faint:#6e7681;--color-primary:#58a6ff;--color-primary-hover:#79b8ff;
-            --color-primary-highlight:#1f3a5f;--color-prod:#58a6ff;--color-prod-light:#1f3a5f;
-            --color-preprod:#fbbf24;--color-preprod-light:#422006;
-            --color-success:#3fb950;--color-success-light:#0d2b18;
-            --color-warning:#fbbf24;--color-warning-light:#42280a;
-            --color-error:#f85149;--color-error-light:#3c1010;
+            --color-bg:#0f1117;--color-surface:#161b22;--color-surface-2:#1c2128;--color-surface-offset:#21262d;
+            --color-border:rgba(255,255,255,0.08);--color-divider:#30363d;--color-text:#e6edf3;--color-text-muted:#8b949e;
+            --color-text-faint:#6e7681;--color-primary:#58a6ff;--color-primary-hover:#79b8ff;--color-primary-highlight:#1f3a5f;
+            --color-prod:#58a6ff;--color-preprod:#fbbf24;--color-success:#3fb950;--color-success-light:#0d2b18;
+            --color-warning:#fbbf24;--color-warning-light:#42280a;--color-error:#f85149;--color-error-light:#3c1010;
             --shadow-sm:0 1px 3px rgba(0,0,0,0.3);
         }
-        @media(prefers-color-scheme:dark){:root:not([data-theme]){--color-bg:#0f1117;--color-surface:#161b22;--color-surface-2:#1c2128;--color-surface-offset:#21262d;--color-border:rgba(255,255,255,0.08);--color-divider:#30363d;--color-text:#e6edf3;--color-text-muted:#8b949e;--color-text-faint:#6e7681;--color-primary:#58a6ff;--color-primary-hover:#79b8ff;--color-primary-highlight:#1f3a5f;--color-prod:#58a6ff;--color-prod-light:#1f3a5f;--color-preprod:#fbbf24;--color-preprod-light:#422006;--color-success:#3fb950;--color-success-light:#0d2b18;--color-warning:#fbbf24;--color-warning-light:#42280a;--color-error:#f85149;--color-error-light:#3c1010;--shadow-sm:0 1px 3px rgba(0,0,0,0.3);}}
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
         html{-webkit-font-smoothing:antialiased;font-size:15px;}
         body{font-family:var(--font-body);background:var(--color-bg);color:var(--color-text);min-height:100dvh;padding:var(--space-6);}
-        .app-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-6);padding-bottom:var(--space-5);border-bottom:1px solid var(--color-divider);}
-        .logo-area{display:flex;align-items:center;gap:var(--space-3);}
-        .logo-mark{width:36px;height:36px;}
-        .app-name{font-size:17px;font-weight:600;letter-spacing:-0.3px;}
-        .app-subtitle{font-size:12px;color:var(--color-text-muted);margin-top:1px;}
-        .theme-toggle{width:36px;height:36px;border-radius:var(--radius-md);border:1px solid var(--color-border);background:var(--color-surface);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--color-text-muted);transition:background 120ms,color 120ms;}
-        .theme-toggle:hover{background:var(--color-surface-2);color:var(--color-text);}
-        .main-grid{display:grid;grid-template-columns:340px 1fr;gap:var(--space-5);align-items:start;}
-        @media(max-width:900px){.main-grid{grid-template-columns:1fr;}}
-        .panel{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;margin-bottom:var(--space-4);}
-        .panel-header{padding:var(--space-4) var(--space-5);border-bottom:1px solid var(--color-divider);display:flex;align-items:center;gap:var(--space-2);}
-        .panel-header-icon{width:16px;height:16px;opacity:.45;flex-shrink:0;}
-        .panel-title{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--color-text-muted);}
-        .panel-body{padding:var(--space-5);}
-        .panel-body+.panel-body{border-top:1px solid var(--color-divider);}
-        .env-block{margin-bottom:var(--space-5);padding:var(--space-4);border-radius:var(--radius-md);border:1px solid var(--color-border);background:var(--color-surface-2);}
-        .env-block:last-child{margin-bottom:0;}
-        .env-label{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:var(--space-3);display:flex;align-items:center;gap:var(--space-2);}
-        .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
-        .dot-prod{background:var(--color-prod);} .dot-preprod{background:var(--color-preprod);}
-        .field{margin-bottom:var(--space-3);} .field:last-child{margin-bottom:0;}
-        .field-label{font-size:12px;font-weight:500;color:var(--color-text-muted);margin-bottom:4px;display:block;}
-        .field-input{width:100%;padding:7px 10px;border:1px solid var(--color-border);border-radius:var(--radius-sm);background:var(--color-surface);color:var(--color-text);font-family:var(--font-body);font-size:13px;transition:border-color 120ms,box-shadow 120ms;}
-        .field-input:focus{outline:none;border-color:var(--color-primary);box-shadow:0 0 0 3px var(--color-primary-highlight);}
-        .field-input.mono{font-family:var(--font-mono);font-size:12px;}
-        .radio-group{display:flex;gap:var(--space-2);flex-wrap:wrap;margin-top:4px;}
-        .radio-chip input[type="radio"]{display:none;}
-        .radio-chip label{display:block;padding:4px 10px;border-radius:20px;border:1px solid var(--color-border);font-size:12px;font-weight:500;cursor:pointer;background:var(--color-surface);color:var(--color-text-muted);transition:all 120ms;}
-        .radio-chip input:checked+label{border-color:var(--color-primary);background:var(--color-primary-highlight);color:var(--color-primary);}
-        .alias-row{display:flex;gap:var(--space-2);margin-bottom:var(--space-2);align-items:center;}
-        .alias-row .field-input{flex:1;}
-        .btn-remove{width:28px;height:28px;border-radius:var(--radius-sm);background:transparent;border:1px solid var(--color-border);color:var(--color-text-faint);font-size:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background 120ms,color 120ms,border-color 120ms;}
-        .btn-remove:hover{background:var(--color-error-light);color:var(--color-error);border-color:var(--color-error);}
-        .btn-add{background:none;border:1px dashed var(--color-border);border-radius:var(--radius-sm);width:100%;padding:7px;font-size:12px;color:var(--color-text-muted);cursor:pointer;margin-top:var(--space-2);transition:all 120ms;font-family:var(--font-body);}
-        .btn-add:hover{border-color:var(--color-primary);color:var(--color-primary);background:var(--color-primary-highlight);}
-        .btn-run{width:100%;padding:11px;border-radius:var(--radius-md);background:var(--color-primary);color:white;border:none;font-family:var(--font-body);font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:var(--space-2);transition:background 120ms,transform 80ms;}
-        .btn-run:hover{background:var(--color-primary-hover);} .btn-run:active{transform:scale(.99);} .btn-run:disabled{opacity:.5;cursor:not-allowed;}
-        .proxy-note{font-size:11px;color:var(--color-text-faint);text-align:center;margin-top:var(--space-2);}
-        .proxy-note a{color:var(--color-primary);text-decoration:none;}
-        .results-panel{display:flex;flex-direction:column;gap:var(--space-4);}
-        .result-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);}
-        .result-card-header{padding:var(--space-3) var(--space-4);background:var(--color-surface-offset);border-bottom:1px solid var(--color-divider);display:flex;align-items:center;gap:var(--space-3);}
-        .alias-name{font-family:var(--font-mono);font-size:13px;font-weight:600;}
-        .target-index{font-family:var(--font-mono);font-size:11px;color:var(--color-text-muted);}
-        .result-card-body{display:grid;grid-template-columns:1fr 1fr;}
-        @media(max-width:700px){.result-card-body{grid-template-columns:1fr;}}
-        .env-result{padding:var(--space-4);border-right:1px solid var(--color-divider);}
-        .env-result:last-child{border-right:none;}
-        .env-result-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:var(--space-3);display:flex;align-items:center;gap:var(--space-2);}
-        .env-result-label.prod{color:var(--color-prod);} .env-result-label.preprod{color:var(--color-preprod);}
-        .stat-row{margin-bottom:var(--space-2);}
-        .stat-label{font-size:11px;color:var(--color-text-muted);margin-bottom:3px;}
-        .pill{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;font-size:12px;font-weight:600;}
-        .pill-ok{background:var(--color-success-light);color:var(--color-success);}
-        .pill-warn{background:var(--color-warning-light);color:var(--color-warning);}
-        .pill-err{background:var(--color-error-light);color:var(--color-error);}
-        .doc-badge{font-family:var(--font-mono);font-size:11px;color:var(--color-text-muted);margin-left:4px;}
-        .env-result.skipped{display:flex;align-items:center;justify-content:center;min-height:80px;}
-        .skipped-msg{font-size:12px;color:var(--color-text-faint);text-align:center;line-height:1.6;}
-        .empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:var(--space-12) var(--space-8);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);color:var(--color-text-faint);gap:var(--space-4);}
-        .empty-state p{font-size:13px;text-align:center;max-width:28ch;line-height:1.6;}
-        @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
-        .skeleton{background:linear-gradient(90deg,var(--color-surface-offset) 25%,var(--color-surface-2) 50%,var(--color-surface-offset) 75%);background-size:200% 100%;animation:shimmer 1.5s ease-in-out infinite;border-radius:var(--radius-sm);height:14px;}
-        @keyframes spin{to{transform:rotate(360deg)}}
+        .app-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-4);padding-bottom:var(--space-4);border-bottom:1px solid var(--color-divider);}
+        .logo-area{display:flex;align-items:center;gap:var(--space-3);} .logo-mark{width:36px;height:36px;}
+        .app-name{font-size:17px;font-weight:600;letter-spacing:-0.3px;} .app-subtitle{font-size:12px;color:var(--color-text-muted);margin-top:1px;}
+        .theme-toggle{width:36px;height:36px;border-radius:var(--radius-md);border:1px solid var(--color-border);background:var(--color-surface);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--color-text-muted);}
+        .tab-bar { display:flex; gap:var(--space-2); margin-bottom:var(--space-5); overflow-x:auto; padding-bottom:2px; }
+        .tab-item { display:flex; align-items:center; gap:var(--space-2); padding:8px 14px; border-radius:var(--radius-md); font-size:13px; font-weight:500; cursor:pointer; color:var(--color-text-muted); background:transparent; border:1px solid transparent; white-space:nowrap; user-select:none; }
+        .tab-item:hover { background:var(--color-surface); border-color:var(--color-border); color:var(--color-text); }
+        .tab-item.active { background:var(--color-surface); border-color:var(--color-border); color:var(--color-primary); box-shadow:var(--shadow-sm); }
+        .tab-item.active::before { content:''; display:block; width:6px; height:6px; border-radius:50%; background:var(--color-primary); }
+        .tab-name-edit { min-width:30px; pointer-events:none; }
+        .tab-edit { opacity:0.45; font-size:12px; padding:0 2px; cursor:pointer; }
+        .tab-close { opacity:0.4; font-size:14px; padding:0 4px; cursor:pointer; }
+        .tab-add { padding:8px 14px; border-radius:var(--radius-md); font-size:13px; font-weight:500; cursor:pointer; color:var(--color-text-muted); border:1px dashed var(--color-border); display:flex; align-items:center; gap:6px; }
+        .main-grid{display:grid;grid-template-columns:340px 1fr;gap:var(--space-5);align-items:start;} @media(max-width:900px){.main-grid{grid-template-columns:1fr;}}
+        .panel{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);overflow:hidden;margin-bottom:var(--space-4);} .panel-header{padding:var(--space-4) var(--space-5);border-bottom:1px solid var(--color-divider);display:flex;align-items:center;gap:var(--space-2);} .panel-title{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--color-text-muted);} .panel-body{padding:var(--space-5);} .panel-body+.panel-body{border-top:1px solid var(--color-divider);}
+        .env-block{margin-bottom:var(--space-5);padding:var(--space-4);border-radius:var(--radius-md);border:1px solid var(--color-border);background:var(--color-surface-2);} .env-label{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:var(--space-3);display:flex;align-items:center;gap:var(--space-2);} .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;} .dot-prod{background:var(--color-prod);} .dot-preprod{background:var(--color-preprod);}
+        .field{margin-bottom:var(--space-3);} .field-label{font-size:12px;font-weight:500;color:var(--color-text-muted);margin-bottom:4px;display:block;} .field-input{width:100%;padding:7px 10px;border:1px solid var(--color-border);border-radius:var(--radius-sm);background:var(--color-surface);color:var(--color-text);font-family:var(--font-body);font-size:13px;} .field-input.mono{font-family:var(--font-mono);font-size:12px;}
+        .alias-row,.header-row{display:flex;gap:var(--space-2);margin-bottom:var(--space-2);align-items:center;} .alias-row .field-input,.header-row .field-input{flex:1;}
+        .btn-remove{width:28px;height:28px;border-radius:var(--radius-sm);background:transparent;border:1px solid var(--color-border);color:var(--color-text-faint);font-size:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;} .btn-add{background:none;border:1px dashed var(--color-border);border-radius:var(--radius-sm);width:100%;padding:7px;font-size:12px;color:var(--color-text-muted);cursor:pointer;margin-top:var(--space-2);font-family:var(--font-body);} .btn-run{width:100%;padding:11px;border-radius:var(--radius-md);background:var(--color-primary);color:white;border:none;font-family:var(--font-body);font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:var(--space-2);} .proxy-note{font-size:11px;color:var(--color-text-faint);text-align:center;margin-top:var(--space-2);}
+        .results-panel{display:flex;flex-direction:column;gap:var(--space-4);} .result-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);} .result-card-header{padding:var(--space-3) var(--space-4);background:var(--color-surface-offset);border-bottom:1px solid var(--color-divider);} .alias-name{font-family:var(--font-mono);font-size:13px;font-weight:600;} .target-index{font-family:var(--font-mono);font-size:11px;color:var(--color-text-muted);} .result-card-body{display:grid;grid-template-columns:1fr 1fr;} @media(max-width:700px){.result-card-body{grid-template-columns:1fr;}} .env-result{padding:var(--space-4);border-right:1px solid var(--color-divider);} .env-result:last-child{border-right:none;} .env-result-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:var(--space-3);display:flex;align-items:center;gap:var(--space-2);} .env-result-label.prod{color:var(--color-prod);} .env-result-label.preprod{color:var(--color-preprod);} .stat-row{margin-bottom:var(--space-2);} .stat-label{font-size:11px;color:var(--color-text-muted);margin-bottom:3px;} .pill{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;font-size:12px;font-weight:600;} .pill-ok{background:var(--color-success-light);color:var(--color-success);} .pill-warn{background:var(--color-warning-light);color:var(--color-warning);} .pill-err{background:var(--color-error-light);color:var(--color-error);} .doc-badge{font-family:var(--font-mono);font-size:11px;color:var(--color-text-muted);margin-left:4px;} .env-result.skipped{display:flex;align-items:center;justify-content:center;min-height:80px;} .skipped-msg{font-size:12px;color:var(--color-text-faint);text-align:center;line-height:1.6;} .empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:var(--space-12) var(--space-8);background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);color:var(--color-text-faint);gap:var(--space-4);} .empty-state p{font-size:13px;text-align:center;max-width:28ch;line-height:1.6;}
+        @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}} .skeleton{background:linear-gradient(90deg,var(--color-surface-offset) 25%,var(--color-surface-2) 50%,var(--color-surface-offset) 75%);background-size:200% 100%;animation:shimmer 1.5s ease-in-out infinite;border-radius:var(--radius-sm);height:14px;} @keyframes spin{to{transform:rotate(360deg)}}
     </style>
 </head>
 <body>
 <header class="app-header">
-    <div class="logo-area">
-        <svg class="logo-mark" viewBox="0 0 36 36" fill="none" aria-label="ES Alias Inspector">
-            <rect width="36" height="36" rx="9" fill="var(--color-primary)"/>
-            <rect x="8" y="10" width="10" height="4" rx="2" fill="white" opacity="0.9"/>
-            <rect x="8" y="16" width="16" height="4" rx="2" fill="white" opacity="0.7"/>
-            <rect x="8" y="22" width="12" height="4" rx="2" fill="white" opacity="0.5"/>
-            <circle cx="27" cy="12" r="5" fill="white" opacity="0.15"/>
-            <circle cx="27" cy="12" r="2.5" fill="white" opacity="0.9"/>
-        </svg>
-        <div>
-            <div class="app-name">ES Alias Inspector</div>
-            <div class="app-subtitle">PROD &amp; PRE-PROD cross-environment check</div>
-        </div>
-    </div>
-    <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-    </button>
+    <div class="logo-area"><svg class="logo-mark" viewBox="0 0 36 36" fill="none" aria-label="ES Alias Inspector"><rect width="36" height="36" rx="9" fill="var(--color-primary)"/><rect x="8" y="10" width="10" height="4" rx="2" fill="white" opacity="0.9"/><rect x="8" y="16" width="16" height="4" rx="2" fill="white" opacity="0.7"/><rect x="8" y="22" width="12" height="4" rx="2" fill="white" opacity="0.5"/><circle cx="27" cy="12" r="5" fill="white" opacity="0.15"/><circle cx="27" cy="12" r="2.5" fill="white" opacity="0.9"/></svg><div><div class="app-name">ES Alias Inspector</div><div class="app-subtitle">PROD &amp; PRE-PROD cross-environment check</div></div></div>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></button>
 </header>
+
+<div class="tab-bar" id="tabBar"></div>
 
 <div class="main-grid">
     <aside>
-        <div class="panel">
-            <div class="panel-header">
-                <svg class="panel-header-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="14" height="14" rx="3"/><path d="M6 9h6M9 6v6"/></svg>
-                <span class="panel-title">Environment Config</span>
+        <div class="panel"><div class="panel-header"><span class="panel-title">Environment Config</span></div><div class="panel-body">
+            <div class="env-block">
+                <div class="env-label"><span class="dot dot-prod"></span>Environment A — PROD</div>
+                <div class="field"><label class="field-label" for="env1Name">Display name</label><input class="field-input" id="env1Name" type="text"></div>
+                <div class="field"><label class="field-label" for="env1Url">Elasticsearch URL</label><input class="field-input mono" id="env1Url" type="text" placeholder="https://es-prod.domain.com:9200"></div>
+                <div class="field"><label class="field-label">Headers (Auth, Custom)</label><div id="env1Headers"></div></div>
             </div>
-            <div class="panel-body">
-                <div class="env-block">
-                    <div class="env-label"><span class="dot dot-prod"></span>Environment A — PROD</div>
-                    <div class="field"><label class="field-label" for="env1Name">Display name</label><input class="field-input" id="env1Name" type="text" value="PROD"></div>
-                    <div class="field"><label class="field-label" for="env1Url">Elasticsearch URL</label><input class="field-input mono" id="env1Url" type="text" placeholder="https://es-prod.domain.com:9200"></div>
-                    <div class="field">
-                        <label class="field-label">Auth type</label>
-                        <div class="radio-group">
-                            <div class="radio-chip"><input type="radio" name="env1Auth" id="e1bearer" value="Bearer" checked><label for="e1bearer">Bearer</label></div>
-                            <div class="radio-chip"><input type="radio" name="env1Auth" id="e1apikey" value="ApiKey"><label for="e1apikey">API Key</label></div>
-                            <div class="radio-chip"><input type="radio" name="env1Auth" id="e1basic" value="Basic"><label for="e1basic">Basic</label></div>
-                            <div class="radio-chip"><input type="radio" name="env1Auth" id="e1none" value="None"><label for="e1none">None</label></div>
-                        </div>
-                    </div>
-                    <div class="field"><label class="field-label" for="env1Token">Token / Key</label><input class="field-input mono" id="env1Token" type="password" placeholder="Paste credential (leave empty if none)"></div>
-                </div>
-                <div class="env-block">
-                    <div class="env-label"><span class="dot dot-preprod"></span>Environment B — PRE-PROD</div>
-                    <div class="field"><label class="field-label" for="env2Name">Display name</label><input class="field-input" id="env2Name" type="text" value="PRE-PROD"></div>
-                    <div class="field"><label class="field-label" for="env2Url">Elasticsearch URL</label><input class="field-input mono" id="env2Url" type="text" placeholder="https://es-preprod.domain.com:9200"></div>
-                    <div class="field">
-                        <label class="field-label">Auth type</label>
-                        <div class="radio-group">
-                            <div class="radio-chip"><input type="radio" name="env2Auth" id="e2bearer" value="Bearer" checked><label for="e2bearer">Bearer</label></div>
-                            <div class="radio-chip"><input type="radio" name="env2Auth" id="e2apikey" value="ApiKey"><label for="e2apikey">API Key</label></div>
-                            <div class="radio-chip"><input type="radio" name="env2Auth" id="e2basic" value="Basic"><label for="e2basic">Basic</label></div>
-                            <div class="radio-chip"><input type="radio" name="env2Auth" id="e2none" value="None"><label for="e2none">None</label></div>
-                        </div>
-                    </div>
-                    <div class="field"><label class="field-label" for="env2Token">Token / Key</label><input class="field-input mono" id="env2Token" type="password" placeholder="Paste credential (leave empty if none)"></div>
-                </div>
+            <div class="env-block">
+                <div class="env-label"><span class="dot dot-preprod"></span>Environment B — PRE-PROD</div>
+                <div class="field"><label class="field-label" for="env2Name">Display name</label><input class="field-input" id="env2Name" type="text"></div>
+                <div class="field"><label class="field-label" for="env2Url">Elasticsearch URL</label><input class="field-input mono" id="env2Url" type="text" placeholder="https://es-preprod.domain.com:9200"></div>
+                <div class="field"><label class="field-label">Headers (Auth, Custom)</label><div id="env2Headers"></div></div>
             </div>
-        </div>
+        </div></div>
 
-        <div class="panel">
-            <div class="panel-header">
-                <svg class="panel-header-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="5"/><path d="M15 15l-3-3"/></svg>
-                <span class="panel-title">Inspection Config</span>
-            </div>
-            <div class="panel-body">
-                <div class="field"><label class="field-label" for="dateInput">Date suffix</label><input class="field-input mono" id="dateInput" type="text" value="20260424" placeholder="e.g. 20260424"></div>
-            </div>
-            <div class="panel-body">
-                <div class="field-label" style="margin-bottom:var(--space-2);">Alias base names</div>
-                <div id="aliasList"></div>
-                <button class="btn-add" onclick="addAlias()">+ Add alias</button>
-            </div>
-        </div>
+        <div class="panel"><div class="panel-header"><span class="panel-title">Inspection Config</span></div><div class="panel-body"><div class="field"><label class="field-label" for="dateInput">Date suffix</label><input class="field-input mono" id="dateInput" type="text" value="20260424" placeholder="e.g. 20260424"></div></div><div class="panel-body"><div class="field-label" style="margin-bottom:var(--space-2);">Alias base names</div><div id="aliasList"></div><button class="btn-add" onclick="addAliasUI()">+ Add alias</button></div></div>
 
-        <button class="btn-run" id="runBtn" onclick="runCheck()">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-            Run Inspection
-        </button>
-        <p class="proxy-note">Requests are proxied via <a href="/docs" target="_blank">FastAPI backend</a> — no CORS issues.</p>
+        <button class="btn-run" id="runBtn" onclick="runCheck()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>Run Inspection</button>
+        <p class="proxy-note">Add custom headers (e.g. Authorization: Bearer xxxx) in the header inputs above.</p>
     </aside>
 
-    <main>
-        <div class="results-panel" id="resultsPanel">
-            <div class="empty-state">
-                <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M9 17H5a2 2 0 00-2 2v0a2 2 0 002 2h14a2 2 0 002-2v0a2 2 0 00-2-2h-4"/><path d="M12 3v14M8 7l4-4 4 4"/></svg>
-                <p>Configure both environments and aliases, then click Run Inspection.</p>
-            </div>
-        </div>
-    </main>
+    <main><div class="results-panel" id="resultsPanel"><div class="empty-state"><p>Configure environments and aliases, then click Run Inspection.</p></div></div></main>
 </div>
 
 <script>
-(function(){
-    const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
-    let d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
-    r.setAttribute('data-theme',d);
-    const sun='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
-    const moon='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-    t&&t.addEventListener('click',()=>{d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);t.innerHTML=d==='dark'?sun:moon;});
-})();
+(function(){const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;let d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';r.setAttribute('data-theme',d);const sun='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';const moon='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';t&&t.addEventListener('click',()=>{d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);t.innerHTML=d==='dark'?sun:moon;});})();
 
-let aliases=['fa-mvp_all','fa-efrat_input'];
-function renderAliases(){
-    document.getElementById('aliasList').innerHTML=aliases.map((a,i)=>`
-        <div class="alias-row">
-            <input class="field-input mono" type="text" value="${a}" placeholder="Alias base name" onchange="aliases[${i}]=this.value">
-            <button class="btn-remove" onclick="aliases.splice(${i},1);renderAliases()" title="Remove">✕</button>
-        </div>`).join('');
-}
-function addAlias(){aliases.push('');renderAliases();}
-renderAliases();
+let tabs=[{id:'tab-default',name:'Project A',env1:{name:'PROD',url:'',header1:{key:'',value:''},header2:{key:'',value:''}},env2:{name:'PRE-PROD',url:'',header1:{key:'',value:''},header2:{key:'',value:''}},date:'20260424',aliases:['fa-mvp_all','fa-efrat_input'],resultsHtml:''}];
+let activeTabId=null;
 
-function envResultHtml(res,envClass,envLabel){
-    if(res.skipped) return`<div class="env-result skipped"><div class="skipped-msg">URL not configured<br>— skipped —</div></div>`;
-    const indexHtml=res.error
-        ?`<span class="pill pill-err">✕ ${res.error}</span>`
-        :res.index_exists
-            ?`<span class="pill pill-ok">✓ Exists</span><span class="doc-badge">${res.doc_count.toLocaleString()} docs</span>`
-            :`<span class="pill pill-err">✕ Missing (404)</span>`;
-    const aliasHtml=res.error
-        ?`<span style="color:var(--color-text-faint);font-size:12px;">—</span>`
-        :res.alias_ok
-            ?`<span class="pill pill-ok">✓ Correct target</span>`
-            :res.actual_index
-                ?`<span class="pill pill-warn">⚠ Wrong target</span><br><span style="font-family:var(--font-mono);font-size:11px;color:var(--color-text-muted);">${res.actual_index}</span>`
-                :`<span class="pill pill-err">✕ No alias found</span>`;
-    return`<div class="env-result"><div class="env-result-label ${envClass}">● ${envLabel}</div><div class="stat-row"><div class="stat-label">Index</div>${indexHtml}</div><div class="stat-row" style="margin-top:10px;"><div class="stat-label">Alias routing</div>${aliasHtml}</div></div>`;
+function getEmptyStateHtml(){return `<div class="empty-state"><p>Configure environments and aliases, then click Run Inspection.</p></div>`;}
+function currentTab(){return tabs.find(x=>x.id===activeTabId);}
+
+function renderHeaderInputs(containerId, env){
+    const el=document.getElementById(containerId);
+    el.innerHTML=`
+        <div class="header-row">
+            <input class="field-input mono" placeholder="Header 1 key" value="${(env.header1&&env.header1.key)||''}" onchange="updateHeader('${containerId}',1,'key',this.value)">
+            <input class="field-input mono" placeholder="Header 1 value" type="password" value="${(env.header1&&env.header1.value)||''}" onchange="updateHeader('${containerId}',1,'value',this.value)">
+        </div>
+        <div class="header-row">
+            <input class="field-input mono" placeholder="Header 2 key" value="${(env.header2&&env.header2.key)||''}" onchange="updateHeader('${containerId}',2,'key',this.value)">
+            <input class="field-input mono" placeholder="Header 2 value" type="password" value="${(env.header2&&env.header2.value)||''}" onchange="updateHeader('${containerId}',2,'value',this.value)">
+        </div>`;
 }
 
-function skeletonCard(name){
-    return`<div class="result-card"><div class="result-card-header"><div class="alias-name">${name}</div></div><div class="result-card-body"><div class="env-result"><div class="skeleton" style="width:55%;margin-bottom:10px"></div><div class="skeleton" style="width:75%"></div></div><div class="env-result"><div class="skeleton" style="width:55%;margin-bottom:10px"></div><div class="skeleton" style="width:75%"></div></div></div></div>`;
+function updateHeader(containerId, idx, field, value){
+    const t=currentTab();
+    if(!t) return;
+    const envKey=containerId==='env1Headers'?'env1':'env2';
+    const headerKey='header'+idx;
+    t[envKey][headerKey]=t[envKey][headerKey]||{key:'',value:''};
+    t[envKey][headerKey][field]=value;
 }
 
-async function runCheck(){
-    const date=document.getElementById('dateInput').value.trim();
-    const valid=aliases.filter(a=>a.trim());
-    const env1Url=document.getElementById('env1Url').value.trim();
-    const env2Url=document.getElementById('env2Url').value.trim();
-    const env1Name=document.getElementById('env1Name').value.trim()||'PROD';
-    const env2Name=document.getElementById('env2Name').value.trim()||'PRE-PROD';
-    if(!date) return alert('Please enter a date suffix.');
-    if(!valid.length) return alert('Please add at least one alias.');
-    if(!env1Url&&!env2Url) return alert('Please configure at least one environment URL.');
-
-    const btn=document.getElementById('runBtn');
-    btn.disabled=true;
-    btn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation:spin .8s linear infinite"><path d="M21 12a9 9 0 11-18 0"/></svg> Running...';
-    document.getElementById('resultsPanel').innerHTML=valid.map(a=>skeletonCard(a)).join('');
-
-    const payload={
-        env1: env1Url?{url:env1Url,auth_type:document.querySelector('input[name="env1Auth"]:checked').value,token:document.getElementById('env1Token').value.trim()}:null,
-        env2: env2Url?{url:env2Url,auth_type:document.querySelector('input[name="env2Auth"]:checked').value,token:document.getElementById('env2Token').value.trim()}:null,
-        aliases: valid,
-        date: date
-    };
-
-    let results=[];
-    try{
-        const resp=await fetch('/api/inspect',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
-        if(!resp.ok) throw new Error(`Server error: HTTP ${resp.status}`);
-        const data=await resp.json();
-        results=data.results;
-    }catch(e){
-        document.getElementById('resultsPanel').innerHTML=`<div class="empty-state"><p style="color:var(--color-error)">${e.message}</p></div>`;
-        btn.disabled=false;
-        btn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run Inspection';
-        return;
-    }
-
-    document.getElementById('resultsPanel').innerHTML=results.map(r=>`
-        <div class="result-card">
-            <div class="result-card-header">
-                <div>
-                    <div class="alias-name">${r.alias}</div>
-                    <div class="target-index">→ ${r.expected_index}</div>
-                </div>
-            </div>
-            <div class="result-card-body">
-                ${envResultHtml(r.env1,'prod',env1Name)}
-                ${envResultHtml(r.env2,'preprod',env2Name)}
-            </div>
-        </div>`).join('');
-
-    btn.disabled=false;
-    btn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run Inspection';
+function saveCurrentTab(){
+    const t=currentTab(); if(!t) return;
+    t.env1={name:env1Name.value,url:env1Url.value,header1:t.env1.header1||{key:'',value:''},header2:t.env1.header2||{key:'',value:''}};
+    t.env2={name:env2Name.value,url:env2Url.value,header1:t.env2.header1||{key:'',value:''},header2:t.env2.header2||{key:'',value:''}};
+    t.date=dateInput.value;
+    t.resultsHtml=resultsPanel.innerHTML;
 }
+
+function loadTab(id){if(activeTabId===id)return; saveCurrentTab(); activeTabId=id; const t=tabs.find(x=>x.id===id); if(!t)return; env1Name.value=t.env1.name||''; env1Url.value=t.env1.url||''; env2Name.value=t.env2.name||''; env2Url.value=t.env2.url||''; dateInput.value=t.date||''; renderHeaderInputs('env1Headers', t.env1); renderHeaderInputs('env2Headers', t.env2); renderAliasesUI(); resultsPanel.innerHTML=t.resultsHtml||getEmptyStateHtml(); renderTabBar();}
+function renderTabBar(){const html=tabs.map(t=>`<div class="tab-item ${t.id===activeTabId?'active':''}" onclick="loadTab('${t.id}')"><span class="tab-name-edit">${t.name}</span><span class="tab-edit" title="Rename" onclick="event.stopPropagation(); renameTab('${t.id}')">✎</span>${tabs.length>1?`<span class="tab-close" onclick="event.stopPropagation(); removeTab('${t.id}')">✕</span>`:''}</div>`).join(''); tabBar.innerHTML=html+`<div class="tab-add" onclick="addTab()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg> Add Tab</div>`;}
+function updateTabName(id,name){const t=tabs.find(x=>x.id===id); if(t)t.name=name.trim()||'Untitled'; renderTabBar();}
+function renameTab(id){const t=tabs.find(x=>x.id===id); if(!t)return; const next=window.prompt('Rename tab',t.name); if(next===null)return; updateTabName(id,next);}
+function addTab(){const newId='tab-'+Date.now(); tabs.push({id:newId,name:'New Project',env1:{name:'PROD',url:'',header1:{key:'',value:''},header2:{key:'',value:''}},env2:{name:'PRE-PROD',url:'',header1:{key:'',value:''},header2:{key:'',value:''}},date:'',aliases:[''],resultsHtml:''}); loadTab(newId);}
+function removeTab(id){if(tabs.length<=1)return; tabs=tabs.filter(t=>t.id!==id); if(activeTabId===id){activeTabId=null; loadTab(tabs[0].id);} else renderTabBar();}
+function renderAliasesUI(){const t=currentTab(); if(!t)return; aliasList.innerHTML=t.aliases.map((a,i)=>`<div class="alias-row"><input class="field-input mono" type="text" value="${a}" placeholder="Alias base name" onchange="updateAliasUI(${i}, this.value)"><button class="btn-remove" onclick="removeAliasUI(${i})" title="Remove">✕</button></div>`).join('');}
+function updateAliasUI(i,v){const t=currentTab(); if(t)t.aliases[i]=v;} function addAliasUI(){const t=currentTab(); if(t){t.aliases.push(''); renderAliasesUI();}} function removeAliasUI(i){const t=currentTab(); if(t){t.aliases.splice(i,1); renderAliasesUI();}}
+
+async function loadLocalConfig(){try{const resp=await fetch('/config.local.json',{cache:'no-store'}); if(resp.ok){const cfg=await resp.json(); if(cfg.tabs&&Array.isArray(cfg.tabs)&&cfg.tabs.length>0){tabs=cfg.tabs.map((ct,i)=>({id:'tab-cfg-'+i,name:ct.name||('Tab '+(i+1)),env1:{name:ct.env1?.name||'PROD',url:ct.env1?.url||'',header1:ct.env1?.header1||{key:'',value:''},header2:ct.env1?.header2||{key:'',value:''}},env2:{name:ct.env2?.name||'PRE-PROD',url:ct.env2?.url||'',header1:ct.env2?.header1||{key:'',value:''},header2:ct.env2?.header2||{key:'',value:''}},date:ct.date||'',aliases:ct.aliases||[],resultsHtml:''}));}}}catch(e){console.warn('No config.local.json found, using defaults.');} activeTabId=null; loadTab(tabs[0].id);}
+
+function envResultHtml(res,envClass,envLabel){if(res.skipped)return`<div class="env-result skipped"><div class="skipped-msg">URL not configured<br>— skipped —</div></div>`;const indexHtml=res.error?`<span class="pill pill-err">✕ ${res.error}</span>`:res.index_exists?`<span class="pill pill-ok">✓ Exists</span><span class="doc-badge">${res.doc_count.toLocaleString()} docs</span>`:`<span class="pill pill-err">✕ Missing (404)</span>`;const aliasHtml=res.error?`<span style="color:var(--color-text-faint);font-size:12px;">—</span>`:res.alias_ok?`<span class="pill pill-ok">✓ Correct target</span>`:res.actual_index?`<span class="pill pill-warn">⚠ Wrong target</span><br><span style="font-family:var(--font-mono);font-size:11px;color:var(--color-text-muted);">${res.actual_index}</span>`:`<span class="pill pill-err">✕ No alias found</span>`;return`<div class="env-result"><div class="env-result-label ${envClass}">● ${envLabel}</div><div class="stat-row"><div class="stat-label">Index</div>${indexHtml}</div><div class="stat-row" style="margin-top:10px;"><div class="stat-label">Alias routing</div>${aliasHtml}</div></div>`;}
+function skeletonCard(name){return`<div class="result-card"><div class="result-card-header"><div class="alias-name">${name}</div></div><div class="result-card-body"><div class="env-result"><div class="skeleton" style="width:55%;margin-bottom:10px"></div><div class="skeleton" style="width:75%"></div></div><div class="env-result"><div class="skeleton" style="width:55%;margin-bottom:10px"></div><div class="skeleton" style="width:75%"></div></div></div></div>`;}
+
+async function runCheck(){const t=currentTab(); if(!t)return; saveCurrentTab(); const date=t.date.trim(); const valid=t.aliases.filter(a=>a.trim()); const e1Url=t.env1.url.trim(); const e2Url=t.env2.url.trim(); const env1NameLabel=t.env1.name.trim()||'PROD'; const env2NameLabel=t.env2.name.trim()||'PRE-PROD'; if(!date)return alert('Please enter a date suffix.'); if(!valid.length)return alert('Please add at least one alias.'); if(!e1Url&&!e2Url)return alert('Please configure at least one environment URL.'); runBtn.disabled=true; runBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation:spin .8s linear infinite"><path d="M21 12a9 9 0 11-18 0"/></svg> Running...'; resultsPanel.innerHTML=valid.map(a=>skeletonCard(a)).join(''); const payload={env1:e1Url?{url:e1Url,header1:t.env1.header1,header2:t.env1.header2}:null,env2:e2Url?{url:e2Url,header1:t.env2.header1,header2:t.env2.header2}:null,aliases:valid,date:date}; let results=[]; try{const resp=await fetch('/api/inspect',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}); if(!resp.ok) throw new Error(`Server error: HTTP ${resp.status}`); const data=await resp.json(); results=data.results;}catch(e){resultsPanel.innerHTML=`<div class="empty-state"><p style="color:var(--color-error)">${e.message}</p></div>`; runBtn.disabled=false; runBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run Inspection'; return;} resultsPanel.innerHTML=results.map(r=>`<div class="result-card"><div class="result-card-header"><div><div class="alias-name">${r.alias}</div><div class="target-index">→ ${r.expected_index}</div></div></div><div class="result-card-body">${envResultHtml(r.env1,'prod',env1NameLabel)}${envResultHtml(r.env2,'preprod',env2NameLabel)}</div></div>`).join(''); t.resultsHtml=resultsPanel.innerHTML; runBtn.disabled=false; runBtn.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg> Run Inspection';}
+
+loadLocalConfig();
 </script>
 </body>
 </html>
